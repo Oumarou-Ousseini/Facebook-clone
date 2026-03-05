@@ -25,7 +25,7 @@
 
 ### 1. Cloner le projet
 ```bash
-git clone https://github.com/TON_USERNAME/facebook-clone.git
+git clone https://github.com/Oumarou-Ousseini/facebook-clone.git
 cd facebook-clone
 ```
 
