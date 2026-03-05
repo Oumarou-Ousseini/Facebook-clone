@@ -1,16 +1,77 @@
-# React + Vite
+# 📘 Clone Facebook Newsfeed
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Projet d'apprentissage ReactJS réalisé dans le cadre du projet ALUMNI de l'**École Nationale Supérieure Polytechnique de Maroua**.  
+> Ce clone reproduit l'interface du fil d'actualité de Facebook (version desktop 3 colonnes) et constitue un exercice pratique préparatoire au développement de la plateforme ALUMNI.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack technique
 
-## React Compiler
+| Technologie      | Version| Rôle                                       |
+|---               |---     |---                                         |
+| **React**        | 18+    | Bibliothèque UI principale                 |
+| **Vite**         | 5+     | Outil de build et serveur de développement |
+| **TailwindCSS**  | 3.x    | Framework CSS utilitaire                   |
+| **lucide-react** | 0.263+ | Bibliothèque d'icônes SVG                  |
+| **JavaScript**   | ES2022 | Langage de programmation                   |
+| **Node.js**      | 18+    | Environnement d'exécution                  |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## Installation et lancement
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prérequis
+- Node.js (version 18 ou supérieure)
+- npm (inclus avec Node.js)
+- Visual Studio Code (recommandé)
+
+### 1. Cloner le projet
+```bash
+git clone https://github.com/TON_USERNAME/facebook-clone.git
+cd facebook-clone
+```
+
+### 2. Installer les dépendances
+```bash
+npm install
+npm install lucide-react
+```
+
+### 3. Lancer le serveur de développement
+```bash
+npm run dev
+```
+
+L'interface sera accessible sur **http://localhost:5173**
+
+
+## Architecture des composants
+
+```
+<FacebookApp />              ← Composant racine (gère pageActive)
+├── <Navbar />               ← Barre fixée en haut
+├── <SidebarGauche />        ← Colonne gauche (profil + liens)
+├── <FeedCentral />          ← Colonne centrale scrollable
+│   ├── <CreerPost />        ← Zone "Quoi de neuf ?"
+│   ├── <Stories />          ← Carrousel de stories horizontal
+│   └── <Post />  × 4       ← Carte de publication (useState J'aime)
+└── <SidebarDroite />        ← Colonne droite (pub + contacts)
+```
+
+### Structure des fichiers
+```
+facebook-clone/
+├── public/
+│   └── vite.svg
+├── src/
+│   ├── assets/              
+│   │   ├── ma-photo.jpg
+│   │   └── ali-abba.jpg
+│   ├── App.jsx              ← Fichier principal (tous les composants)
+│   ├── index.css            ← Directives TailwindCSS
+│   └── main.jsx             ← Point d'entrée React
+├── tailwind.config.js
+├── vite.config.js
+├── index.html
+└── package.json
+```
+
+
